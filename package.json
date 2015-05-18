@@ -1,17 +1,17 @@
 {
-  "name": "osx-appversion",
-  "version": "1.0.3",
+  "name": "osx-app-version",
+  "version": "1.0.4",
   "description": "Get an .app's version in OS X",
   "files": [
     "index.js",
     "cli.js"
   ],
   "bin": {
-    "osx-appversion": "cli.js"
+    "osx-app-version": "cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gillstrom/osx-appversion.git"
+    "url": "https://github.com/gillstrom/osx-app-version.git"
   },
   "keywords": [
     "app",
@@ -23,9 +23,9 @@
   "author": "Andreas Gillström <andreasgillstrom@gmail.com> (http://hynden.se)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gillstrom/osx-appversion/issues"
+    "url": "https://github.com/gillstrom/osx-app-version/issues"
   },
-  "homepage": "https://github.com/gillstrom/osx-appversion",
+  "homepage": "https://github.com/gillstrom/osx-app-version",
   "dependencies": {
     "app-path": "^1.0.0",
     "meow": "^3.1.0"

@@ -1,4 +1,4 @@
-# osx-appversion
+# osx-app-version
 
 > Get an .app's version in OS X
 
@@ -6,14 +6,14 @@
 ## Install
 
 ```
-$ npm install --save osx-appversion
+$ npm install --save osx-app-version
 ```
 
 
 ## Usage
 
 ```js
-var appVersion = require('osx-appversion');
+var appVersion = require('osx-app-version');
 
 appVersion('Safari', function (err, version) {
 	console.log(version);
@@ -30,14 +30,14 @@ appVersion('/Applications/Safari.app', function (err, version) {
 ## CLI
 
 ```
-$ npm install --global osx-appversion
+$ npm install --global osx-app-version
 ```
 
 ```
-$ osx-appversion --help
+$ osx-app-version --help
 
   Examples
-    $ osx-appversion Safari
+    $ osx-app-version Safari
     $ osx-app-version /Applications/Safari.app
 ```
 
