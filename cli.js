@@ -10,6 +10,11 @@ var cli = meow({
 	].join('\n')
 });
 
+if (!cli.input.length) {
+	console.error('Application is required');
+	process.exit(1);
+}
+
 appVersion(cli.input[0], function (err, version) {
 	if (err) {
 		console.error(err.message);
