@@ -1,6 +1,6 @@
 {
   "name": "osx-appversion",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get an .app's version in OS X",
   "files": [
     "index.js",
