@@ -6,13 +6,8 @@
     "index.js",
     "cli.js"
   ],
-  "bin": {
-    "osx-app-version": "cli.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gillstrom/osx-app-version.git"
-  },
+  "bin": "cli.js",
+  "repository": "gillstrom/osx-app-version",
   "keywords": [
     "app",
     "osx",
@@ -22,10 +17,6 @@
   ],
   "author": "Andreas Gillström <andreasgillstrom@gmail.com> (http://hynden.se)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gillstrom/osx-app-version/issues"
-  },
-  "homepage": "https://github.com/gillstrom/osx-app-version",
   "dependencies": {
     "app-path": "^1.0.0",
     "meow": "^3.1.0"
