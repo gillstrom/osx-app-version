@@ -1,8 +1,13 @@
 'use strict';
 var execFile = require('child_process').execFile;
 var fs = require('fs');
+var path = require('path');
 
 module.exports = function (app, cb) {
+	if (typeof app !== 'string') {
+		throw new Error('Application is required');
+	}
+
 	var cmd = 'mdls';
 	var args = [
 		'-name',
@@ -10,22 +15,27 @@ module.exports = function (app, cb) {
 		app
 	];
 
-	try {
-		if (!fs.statSync(app).isDirectory() || app.indexOf('.app') === -1) {
-			cb(new Error(false));
-			return;
-		}
-	} catch (e) {
-		cb(e);
-		return;
+	if (path.extname(app) !== '.app') {
+		throw new Error('Expected an application');
 	}
 
-	execFile(cmd, args, function (err, stdout, stderr) {
+	fs.stat(app, function (err, stats) {
 		if (err) {
 			cb(err);
 			return;
 		}
 
-		cb(null, stdout.split('"')[1]);
+		if (!stats.isDirectory()) {
+			throw new Error('Expected an application');
+		}
+
+		execFile(cmd, args, function (err, stdout) {
+			if (err) {
+				cb(err);
+				return;
+			}
+
+			cb(null, stdout.split('"')[1]);
+		});
 	});
 };

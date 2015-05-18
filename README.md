@@ -1,4 +1,5 @@
 # osx-appversion
+
 > Get an .app's version in OS X
 
 
@@ -14,11 +15,7 @@ $ npm install --save osx-appversion
 ```js
 var appVersion = require('osx-appversion');
 
-appVersion('path-to-app', function (err, version) {
-	if (err) {
-		console.error(err.message);
-	}
-
+appVersion('Finder.app', function (err, version) {
 	console.log(version);
 	// => 1.0.2
 });
@@ -35,7 +32,7 @@ $ npm install --global osx-appversion
 $ osx-appversion --help
 
   Usage
-  	$ osx-app-version <path-to-app>
+    $ osx-app-version <path-to-app>
 ```
 
 
