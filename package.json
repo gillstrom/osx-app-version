@@ -1,6 +1,6 @@
 {
   "name": "osx-appversion",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get an .app's version in OS X",
   "files": [
     "index.js",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/gillstrom/osx-appversion",
   "dependencies": {
+    "app-path": "^1.0.0",
     "meow": "^3.1.0"
   }
 }

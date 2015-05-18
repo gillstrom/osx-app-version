@@ -5,8 +5,9 @@ var appVersion = require('./');
 
 var cli = meow({
 	help: [
-		'Usage',
-		'	$ osx-app-version <path-to-app>'
+		'Examples',
+		'	$ osx-app-version Safari',
+		'	$ osx-app-version /Applications/Safari.app'
 	].join('\n')
 });
 

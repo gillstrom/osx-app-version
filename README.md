@@ -15,9 +15,14 @@ $ npm install --save osx-appversion
 ```js
 var appVersion = require('osx-appversion');
 
-appVersion('Finder.app', function (err, version) {
+appVersion('Safari', function (err, version) {
 	console.log(version);
-	// => 1.0.2
+	// => 8.0.6
+});
+
+appVersion('/Applications/Safari.app', function (err, version) {
+	console.log(version);
+	// => 8.0.6
 });
 ```
 
@@ -31,8 +36,9 @@ $ npm install --global osx-appversion
 ```
 $ osx-appversion --help
 
-  Usage
-    $ osx-app-version <path-to-app>
+  Examples
+    $ osx-appversion Safari
+    $ osx-app-version /Applications/Safari.app
 ```
 
 

@@ -1,25 +1,44 @@
 'use strict';
 var execFile = require('child_process').execFile;
 var fs = require('fs');
-var path = require('path');
+var appPath = require('app-path');
+
+function getVersion(path, cb) {
+	var cmd = 'mdls';
+	var args = [
+		'-name',
+		'kMDItemVersion',
+		path
+	];
+
+	execFile(cmd, args, function (err, stdout) {
+		if (err) {
+			cb(err);
+			return;
+		}
+
+		cb(null, stdout.split('"')[1]);
+	});
+}
 
 module.exports = function (app, cb) {
 	if (typeof app !== 'string') {
 		throw new Error('Application is required');
 	}
 
-	var cmd = 'mdls';
-	var args = [
-		'-name',
-		'kMDItemVersion',
-		app
-	];
-
-	if (path.extname(app) !== '.app') {
-		throw new Error('Expected an application');
-	}
-
 	fs.stat(app, function (err, stats) {
+		if (err && err.code === 'ENOENT') {
+			appPath(app, function (err, path) {
+				if (err) {
+					cb(err);
+					return;
+				}
+
+				getVersion(path, cb);
+			});
+			return;
+		}
+
 		if (err) {
 			cb(err);
 			return;
@@ -29,13 +48,6 @@ module.exports = function (app, cb) {
 			throw new Error('Expected an application');
 		}
 
-		execFile(cmd, args, function (err, stdout) {
-			if (err) {
-				cb(err);
-				return;
-			}
-
-			cb(null, stdout.split('"')[1]);
-		});
+		getVersion(app, cb);
 	});
 };
