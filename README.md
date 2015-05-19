@@ -1,4 +1,4 @@
-# osx-app-version
+# osx-app-version [![Build Status](https://travis-ci.org/gillstrom/osx-app-version.svg?branch=master)](https://travis-ci.org/gillstrom/osx-app-version)
 
 > Get an .app's version in OS X
 
