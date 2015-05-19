@@ -7,7 +7,8 @@ var cli = meow({
 	help: [
 		'Examples',
 		'	$ osx-app-version Safari',
-		'	$ osx-app-version /Applications/Safari.app'
+		'	$ osx-app-version /Applications/Safari.app',
+		'	$ osx-app-version com.apple.Safari'
 	].join('\n')
 });
 

@@ -24,6 +24,11 @@ appVersion('/Applications/Safari.app', function (err, version) {
 	console.log(version);
 	// => 8.0.6
 });
+
+appVersion('com.apple.Safari', function (err, version) {
+	console.log(version);
+	// => 8.0.6
+});
 ```
 
 
@@ -39,6 +44,7 @@ $ osx-app-version --help
   Examples
     $ osx-app-version Safari
     $ osx-app-version /Applications/Safari.app
+    $ osx-app-version com.apple.Safari
 ```
 
 
