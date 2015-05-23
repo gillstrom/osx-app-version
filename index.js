@@ -8,6 +8,7 @@ function getVersion(path, cb) {
 	var args = [
 		'-name',
 		'kMDItemVersion',
+		'-raw',
 		path
 	];
 
@@ -17,7 +18,7 @@ function getVersion(path, cb) {
 			return;
 		}
 
-		cb(null, stdout.split('"')[1]);
+		cb(null, stdout);
 	});
 }
 
