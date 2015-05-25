@@ -50,7 +50,7 @@ $ osx-app-version --help
 
 ## Related
 
-* [battery-level](https://github.com/gillstrom/osx-app) - Get information about an app
+* [osx-app](https://github.com/gillstrom/osx-app) - Get information about an app
 
 
 ## License
