@@ -48,6 +48,11 @@ $ osx-app-version --help
 ```
 
 
+## Related
+
+* [battery-level](https://github.com/gillstrom/osx-app) - Get information about an app
+
+
 ## License
 
 MIT © [Andreas Gillström](https://github.com/gillstrom)
