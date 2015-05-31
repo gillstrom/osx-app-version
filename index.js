@@ -24,7 +24,7 @@ function getVersion(path, cb) {
 
 module.exports = function (app, cb) {
 	if (process.platform !== 'darwin') {
-		throw new Error('Only OS X are supported');
+		throw new Error('Only OS X systems are supported');
 	}
 
 	if (typeof app !== 'string') {
