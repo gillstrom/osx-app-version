@@ -1,6 +1,6 @@
 # osx-app-version [![Build Status](https://travis-ci.org/gillstrom/osx-app-version.svg?branch=master)](https://travis-ci.org/gillstrom/osx-app-version)
 
-> Get an .app's version in OS X
+> Get an .app's version in OS X systems.
 
 
 ## Install
@@ -17,17 +17,17 @@ var appVersion = require('osx-app-version');
 
 appVersion('Safari', function (err, version) {
 	console.log(version);
-	// => 8.0.6
+	//=> '8.0.6'
 });
 
 appVersion('/Applications/Safari.app', function (err, version) {
 	console.log(version);
-	// => 8.0.6
+	//=> '8.0.6'
 });
 
 appVersion('com.apple.Safari', function (err, version) {
 	console.log(version);
-	// => 8.0.6
+	//=> '8.0.6'
 });
 ```
 

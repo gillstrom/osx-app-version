@@ -1,7 +1,7 @@
 {
   "name": "osx-app-version",
   "version": "1.0.8",
-  "description": "Get an .app's version in OS X",
+  "description": "Get an .app's version in OS X systems.",
   "files": [
     "index.js",
     "cli.js"
@@ -13,10 +13,11 @@
   },
   "keywords": [
     "app",
-    "osx",
     "apple",
-    "version",
-    "get version"
+    "get version",
+    "mac",
+    "osx",
+    "version"
   ],
   "author": "Andreas Gillström <andreasgillstrom@gmail.com> (http://hynden.se)",
   "license": "MIT",
