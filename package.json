@@ -9,7 +9,7 @@
   "bin": "cli.js",
   "repository": "gillstrom/osx-app-version",
   "scripts": {
-    "test": "node test.js"
+    "test": "xo && node test.js"
   },
   "keywords": [
     "app",
@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "ava": "0.0.4",
-    "semver-regex": "^1.0.0"
+    "xo": "^0.9.0"
   }
 }
