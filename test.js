@@ -1,29 +1,28 @@
-'use strict';
-var test = require('ava');
-var appVersion = require('./');
+import test from 'ava';
+import appVersion from './';
 
-test('path', function (t) {
+test('path', t => {
 	t.plan(2);
 
-	appVersion('/Applications/Safari.app', function (err, version) {
+	appVersion('/Applications/Safari.app', (err, version) => {
 		t.assert(!err, err);
 		t.assert(/^\d\.\d$/.test(version), version);
 	});
 });
 
-test('name', function (t) {
+test('name', t => {
 	t.plan(2);
 
-	appVersion('Safari', function (err, version) {
+	appVersion('Safari', (err, version) => {
 		t.assert(!err, err);
 		t.assert(/^\d\.\d$/.test(version), version);
 	});
 });
 
-test('bundle', function (t) {
+test('bundle', t => {
 	t.plan(2);
 
-	appVersion('com.apple.Safari', function (err, version) {
+	appVersion('com.apple.Safari', (err, version) => {
 		t.assert(!err, err);
 		t.assert(/^\d\.\d$/.test(version), version);
 	});

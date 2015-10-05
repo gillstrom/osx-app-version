@@ -9,7 +9,7 @@
   "bin": "cli.js",
   "repository": "gillstrom/osx-app-version",
   "scripts": {
-    "test": "xo && node test.js"
+    "test": "xo && ava"
   },
   "keywords": [
     "app",
@@ -26,7 +26,7 @@
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "ava": "0.0.4",
+    "ava": "^0.2.0",
     "xo": "^0.9.0"
   }
 }
