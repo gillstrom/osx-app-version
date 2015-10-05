@@ -14,7 +14,8 @@
   "keywords": [
     "app",
     "apple",
-    "get version",
+    "application",
+    "get",
     "mac",
     "osx",
     "version"
@@ -23,10 +24,17 @@
   "license": "MIT",
   "dependencies": {
     "app-path": "^1.0.1",
-    "meow": "^3.3.0"
+    "meow": "^3.3.0",
+    "pify": "^2.2.0",
+    "pinkie-promise": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.2.0",
     "xo": "^0.9.0"
+  },
+  "xo": {
+    "ignores": [
+      "test.js"
+    ]
   }
 }

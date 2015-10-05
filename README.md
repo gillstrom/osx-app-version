@@ -15,19 +15,19 @@ $ npm install --save osx-app-version
 ```js
 var appVersion = require('osx-app-version');
 
-appVersion('Safari', function (err, version) {
+appVersion('Safari').then(version => {
 	console.log(version);
-	//=> '8.0.6'
+	//=> '8.0'
 });
 
-appVersion('/Applications/Safari.app', function (err, version) {
+appVersion('/Applications/Safari.app').then(version => {
 	console.log(version);
-	//=> '8.0.6'
+	//=> '8.0'
 });
 
-appVersion('com.apple.Safari', function (err, version) {
+appVersion('com.apple.Safari').then(version => {
 	console.log(version);
-	//=> '8.0.6'
+	//=> '8.0'
 });
 ```
 

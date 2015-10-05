@@ -1,9 +1,11 @@
 'use strict';
 var execFile = require('child_process').execFile;
 var fs = require('fs');
+var pify = require('pify');
+var Promise = require('pinkie-promise');
 var appPath = require('app-path');
 
-function getVersion(path, cb) {
+function getVersion(path) {
 	var cmd = 'mdls';
 	var args = [
 		'-name',
@@ -12,47 +14,31 @@ function getVersion(path, cb) {
 		path
 	];
 
-	execFile(cmd, args, function (err, stdout) {
-		if (err) {
-			cb(err);
-			return;
-		}
-
-		cb(null, stdout);
-	});
+	return pify(execFile, Promise)(cmd, args);
 }
 
-module.exports = function (app, cb) {
+module.exports = function (app) {
 	if (process.platform !== 'darwin') {
-		throw new Error('Only OS X systems are supported');
+		return Promise.reject(new Error('Only OS X systems are supported'));
 	}
 
 	if (typeof app !== 'string') {
-		throw new Error('Application is required');
+		return Promise.reject(new Error('Application is required'));
 	}
 
-	fs.stat(app, function (err, stats) {
-		if (err && err.code === 'ENOENT') {
-			appPath(app, function (err, path) {
-				if (err) {
-					cb(err);
-					return;
-				}
+	return pify(fs.stat)(app)
+		.then(function (stats) {
+			if (!stats.isDirectory()) {
+				return Promise.reject(new Error('Expected an application'));
+			}
 
-				getVersion(path, cb);
-			});
-			return;
-		}
+			return getVersion(app);
+		})
+		.catch(function (err) {
+			if (err && err.code === 'ENOENT') {
+				return pify(appPath, Promise)(app).then(getVersion);
+			}
 
-		if (err) {
-			cb(err);
-			return;
-		}
-
-		if (!stats.isDirectory()) {
-			throw new Error('Expected an application');
-		}
-
-		getVersion(app, cb);
-	});
+			return Promise.reject(err);
+		});
 };

@@ -17,11 +17,11 @@ if (!cli.input.length) {
 	process.exit(1);
 }
 
-appVersion(cli.input[0], function (err, version) {
-	if (err) {
+appVersion(cli.input[0])
+	.then(function (version) {
+		console.log(version);
+	})
+	.catch(function (err) {
 		console.error(err.message);
 		process.exit(1);
-	}
-
-	console.log(version);
-});
+	});

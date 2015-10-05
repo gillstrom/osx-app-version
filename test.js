@@ -1,29 +1,15 @@
 import test from 'ava';
 import appVersion from './';
+const reg = /^\d\.\d$/;
 
-test('path', t => {
-	t.plan(2);
-
-	appVersion('/Applications/Safari.app', (err, version) => {
-		t.assert(!err, err);
-		t.assert(/^\d\.\d$/.test(version), version);
-	});
+test('path', async t => {
+	t.is(reg.test(await appVersion('/Applications/Safari.app')), true);
 });
 
-test('name', t => {
-	t.plan(2);
-
-	appVersion('Safari', (err, version) => {
-		t.assert(!err, err);
-		t.assert(/^\d\.\d$/.test(version), version);
-	});
+test('name', async t => {
+	t.is(reg.test(await appVersion('Safari')), true);
 });
 
-test('bundle', t => {
-	t.plan(2);
-
-	appVersion('com.apple.Safari', (err, version) => {
-		t.assert(!err, err);
-		t.assert(/^\d\.\d$/.test(version), version);
-	});
+test('bundle', async t => {
+	t.is(reg.test(await appVersion('com.apple.Safari')), true);
 });
