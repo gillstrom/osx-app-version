@@ -1,15 +1,14 @@
 import test from 'ava';
 import appVersion from './';
-const reg = /^\d\.\d$/;
 
 test('path', async t => {
-	t.is(reg.test(await appVersion('/Applications/Safari.app')), true);
+	t.is(typeof await appVersion('/Applications/Safari.app'), 'string');
 });
 
 test('name', async t => {
-	t.is(reg.test(await appVersion('Safari')), true);
+	t.is(typeof await appVersion('Safari'), 'string');
 });
 
 test('bundle', async t => {
-	t.is(reg.test(await appVersion('com.apple.Safari')), true);
+	t.is(typeof await appVersion('com.apple.Safari'), 'string');
 });
