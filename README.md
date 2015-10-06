@@ -13,7 +13,7 @@ $ npm install --save osx-app-version
 ## Usage
 
 ```js
-var appVersion = require('osx-app-version');
+const appVersion = require('osx-app-version');
 
 appVersion('Safari').then(version => {
 	console.log(version);
