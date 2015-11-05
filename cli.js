@@ -16,9 +16,7 @@ if (!cli.input.length) {
 }
 
 appVersion(cli.input[0])
-	.then(function (version) {
-		console.log(version);
-	})
+	.then(console.log)
 	.catch(function (err) {
 		console.error(err.message);
 		process.exit(1);
