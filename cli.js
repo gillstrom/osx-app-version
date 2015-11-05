@@ -3,14 +3,12 @@
 var meow = require('meow');
 var appVersion = require('./');
 
-var cli = meow({
-	help: [
-		'Examples',
-		'	$ osx-app-version Safari',
-		'	$ osx-app-version /Applications/Safari.app',
-		'	$ osx-app-version com.apple.Safari'
-	]
-});
+var cli = meow([
+	'Examples',
+	'	$ osx-app-version Safari',
+	'	$ osx-app-version /Applications/Safari.app',
+	'	$ osx-app-version com.apple.Safari'
+]);
 
 if (!cli.input.length) {
 	console.error('Application is required');

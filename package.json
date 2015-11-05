@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "app-path": "^1.0.1",
-    "meow": "^3.3.0",
+    "meow": "^3.5.0",
     "pify": "^2.2.0",
     "pinkie-promise": "^1.0.0"
   },
