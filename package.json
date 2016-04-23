@@ -1,19 +1,25 @@
 {
   "name": "osx-app-version",
   "version": "2.0.2",
-  "description": "Get an .app's version in OS X systems.",
-  "files": [
-    "index.js",
-    "cli.js"
-  ],
+  "description": "Get an .app's version in OS X systems",
+  "license": "MIT",
+  "repository": "gillstrom/osx-app-version",
+  "author": {
+    "email": "andreasgillstrom@gmail.com",
+    "name": "Andreas Gillström",
+    "url": "github.com/gillstrom"
+  },
   "bin": "cli.js",
   "engines": {
     "node": ">=4"
   },
-  "repository": "gillstrom/osx-app-version",
   "scripts": {
     "test": "xo && ava"
   },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
   "keywords": [
     "app",
     "apple",
@@ -23,8 +29,6 @@
     "osx",
     "version"
   ],
-  "author": "Andreas Gillström <andreasgillstrom@gmail.com> (http://hynden.se)",
-  "license": "MIT",
   "dependencies": {
     "app-path": "^1.0.1",
     "meow": "^3.5.0",
