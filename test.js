@@ -1,14 +1,14 @@
 import test from 'ava';
-import appVersion from './';
+import m from './';
 
 test('path', async t => {
-	t.is(typeof await appVersion('/Applications/Safari.app'), 'string');
+	t.is(typeof await m('/Applications/Safari.app'), 'string');
 });
 
 test('name', async t => {
-	t.is(typeof await appVersion('Safari'), 'string');
+	t.is(typeof await m('Safari'), 'string');
 });
 
 test('bundle', async t => {
-	t.is(typeof await appVersion('com.apple.Safari'), 'string');
+	t.is(typeof await m('com.apple.Safari'), 'string');
 });
