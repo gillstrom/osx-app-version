@@ -41,7 +41,7 @@ $ npm install --global osx-app-version
 ```
 $ osx-app-version --help
 
-  Examples
+  Example
     $ osx-app-version Safari
     $ osx-app-version /Applications/Safari.app
     $ osx-app-version com.apple.Safari
