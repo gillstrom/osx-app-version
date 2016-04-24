@@ -1,23 +1,22 @@
 'use strict';
-var execFile = require('child_process').execFile;
-var fs = require('fs');
-var pify = require('pify');
-var Promise = require('pinkie-promise');
-var appPath = require('app-path');
+const execFile = require('child_process').execFile;
+const fs = require('fs');
+const pify = require('pify');
+const appPath = require('app-path');
 
-function getVersion(path) {
-	var cmd = 'mdls';
-	var args = [
+const getVersion = path => {
+	const cmd = 'mdls';
+	const args = [
 		'-name',
 		'kMDItemVersion',
 		'-raw',
 		path
 	];
 
-	return pify(execFile, Promise)(cmd, args);
-}
+	return pify(execFile)(cmd, args);
+};
 
-module.exports = function (app) {
+module.exports = app => {
 	if (process.platform !== 'darwin') {
 		return Promise.reject(new Error('Only OS X systems are supported'));
 	}
@@ -27,18 +26,18 @@ module.exports = function (app) {
 	}
 
 	return pify(fs.stat)(app)
-		.then(function (stats) {
+		.then(stats => {
 			if (!stats.isDirectory()) {
 				return Promise.reject(new Error('Expected an application'));
 			}
 
 			return getVersion(app);
 		})
-		.catch(function (err) {
+		.catch(err => {
 			if (err && err.code === 'ENOENT') {
-				return pify(appPath, Promise)(app).then(getVersion);
+				return pify(appPath)(app).then(getVersion);
 			}
 
-			return Promise.reject(err);
+			throw err;
 		});
 };
